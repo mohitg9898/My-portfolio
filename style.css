@@ -1,0 +1,177 @@
+/* Global Body Styling */
+body {
+    background-color: #0c1116; /* Deep dark background */
+    color: #c9d1d9; /* Default text color */
+    line-height: 1.6;
+}
+
+/* Reusable Section Container */
+.section-container {
+    margin-bottom: 4rem;
+}
+
+/* Section Title Underline Effect */
+.section-title {
+    position: relative;
+    padding-bottom: 0.5rem;
+    color: #58a6ff; /* A bright, techy blue */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* Slightly longer underline */
+    height: 3px;
+    background-color: #58a6ff;
+    border-radius: 9999px;
+}
+
+/* Card Styling (Experience, Projects, Skills) */
+.card {
+    background-color: #161b22; /* Slightly lighter dark background for cards */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #21262d; /* Subtle border for definition */
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* ======================================
+    CSS for 3D Profile Flip Effect (MERGED)
+    ======================================
+*/
+/* The main container sets the 3D context (perspective) for the rotation */
+.profile-flip-container {
+    perspective: 1000px; /* Required for 3D effect */
+    width: 128px; /* w-32 */
+    height: 128px; /* h-32 */
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+/* The element that holds both sides and performs the flip */
+.profile-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s; /* The core animation time */
+    transform-style: preserve-3d; /* Important: keeps child elements in 3D space */
+}
+
+/* On hover, flip the inner container 180 degrees */
+.profile-flip-container:hover .profile-flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Common styling for both the front and back face */
+.profile-flip-front, .profile-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Hide the back of the element when facing away */
+    backface-visibility: hidden;
+    border-radius: 9999px; /* Tailwind's rounded-full */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+    border: 4px solid #38bdf8; /* Tailwind's border-sky-400 */
+}
+
+/* Style for the front face (Profile Pic) */
+.profile-flip-front {
+    background-color: #1f2937; /* Dark background color */
+}
+
+/* Style for the back face (3D Icon/Creative Side) */
+.profile-flip-back {
+    background-color: #38bdf8; /* Sky-400 background color */
+    color: #0d1117; /* Text color */
+    transform: rotateY(180deg); /* Start rotated 180 deg so it faces backwards initially */
+    padding: 1rem;
+}
+/* ======================================
+    END 3D Profile Flip Effect
+    ======================================
+*/
+
+/* Tech Pills for Projects */
+.tech-pill {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    background-color: #238636; /* GitHub green for tech */
+    color: #f0f6fc;
+    border: 1px solid #30703f;
+}
+
+/* Soft Skill Pills */
+.skill-pill {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 4px;
+    background-color: #21262d;
+    color: #8b949e;
+    border: 1px solid #30363d;
+}
+
+/* Education Timeline Effect */
+.education-timeline {
+    padding-left: 1rem;
+}
+.timeline-item {
+    position: relative;
+    padding-left: 1.5rem; /* Space for the line and dot */
+    margin-bottom: 1.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: calc(100% + 1.5rem);
+    width: 3px;
+    background-color: #21262d; /* Gray line */
+    border-radius: 9999px;
+}
+.timeline-item:last-child::before {
+    /* Hide the line after the last item */
+    height: 5px;
+}
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -5px; /* Adjust to center the dot on the line */
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    background-color: #58a6ff; /* Blue dot */
+    border-radius: 50%;
+    border: 3px solid #161b22; /* Card background color for depth */
+}
+/* Special color for the most recent item (B.E.) dot */
+.education-timeline .timeline-item:first-child::after {
+    background-color: #58a6ff;
+    border-color: #161b22;
+}
+
+/* Animation for achievement items */
+.achievement-item {
+    transition: background-color 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+.achievement-item:hover {
+    background-color: #21262d;
+}
